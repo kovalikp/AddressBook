@@ -16,7 +16,7 @@ namespace AddressBook
         }
 
         [Fact]
-        public async Task OpenApiEndpointShouldReturnOO()
+        public async Task OpenAPI_endpoint_returns_200OK()
         {
             HttpResponseMessage response = await _client.GetAsync("/swagger/v1/swagger.json");
             response.StatusCode.Should().Be(System.Net.HttpStatusCode.OK);
