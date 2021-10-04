@@ -27,7 +27,6 @@ namespace AddressBook.Infrastructure.Json
         {
             NullableValueProperty? value = JsonSerializer.Deserialize<NullableValueProperty>(json, s_jsonSerializerOptions);
             value!.Property.Should().Be(new Optional<int?>(propertyValue));
-
         }
 
         [Theory]
@@ -47,7 +46,6 @@ namespace AddressBook.Infrastructure.Json
         {
             ReferenceProperty? value = JsonSerializer.Deserialize<ReferenceProperty>(json, s_jsonSerializerOptions);
             value!.Property.Should().Be(new Optional<string>(propertyValue));
-
         }
 
         [Fact]

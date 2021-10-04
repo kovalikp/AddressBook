@@ -16,8 +16,8 @@ namespace AddressBook.Infrastructure.Json
             // During deserialization, there is no way to differentiate between nullable and non-nullable reference values.
             // Therefore serializer will set reference value to null in either case. This is consistent with default deserialization.
             return new Optional<T>(value!);
-
         }
+
         public override void Write(Utf8JsonWriter writer, Optional<T> value, JsonSerializerOptions options)
         {
             if (!value.TryGetValue(out T? innerValue))

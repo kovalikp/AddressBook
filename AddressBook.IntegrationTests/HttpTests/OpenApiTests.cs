@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using FluentAssertions;
 using Xunit;
 
-namespace AddressBook
+namespace AddressBook.HttpTests
 {
     public class OpenApiTests : IClassFixture<AddressBookApplicationFactory>
     {

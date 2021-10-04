@@ -14,6 +14,7 @@ namespace AddressBook.Features.Contacts
         }
 
         public int Id { get; }
+
         public string Name { get; }
     }
 }

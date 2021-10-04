@@ -22,19 +22,17 @@ namespace AddressBook.Features.Contacts
             _mediator = mediator ?? throw new ArgumentNullException(nameof(mediator));
         }
 
-
         [HttpGet()]
         public async Task<ActionResult<ContactsDto>> List(CancellationToken cancellationToken)
         {
-            ContactsDto result = await _mediator.Send(new ListContactsQuery());
+            ContactsDto result = await _mediator.Send(new ListContactsQuery(), cancellationToken);
             return result;
         }
-
 
         [HttpGet("{id}", Name = GetRoute)]
         public async Task<ActionResult<ContactDto>> Get(int id, CancellationToken cancellationToken)
         {
-            var result = await _mediator.Send(new GetContactQuery(id), cancellationToken);
+            ContactDto? result = await _mediator.Send(new GetContactQuery(id), cancellationToken);
 
             return result is not null ? result : NotFound();
         }
